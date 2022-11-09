@@ -1,0 +1,79 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #ddd;
+	color: #111;
+	font-family: sans-serif;
+}
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.header-text {
+	padding: 10px;
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.copy-text {
+	position: relative;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #333;
+	border-radius: 10px;
+	display: flex;
+}
+.input-copy-text {
+	padding: 10px;
+	font-size: 18px;
+	color: #fff;
+	border: none;
+	outline: none;
+	backdrop-filter: blur(10px);
+}
+
+.copy-text button {
+	padding: 10px;
+	background-color: #5784f5;
+	color: #fff;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.copy-text button:active {
+	background-color: #809ce2;
+}
+.copy-text button::before {
+	content: 'Copied';
+	position: absolute;
+	top: -50px;
+	right: 0;
+	background-color: #5c81dc;
+	padding: 8px;
+	border-radius: 20px;
+	font-size: 15px;
+	display: none;
+}
+.copy-text button::after {
+	content: '';
+	position: absolute;
+	top: -20px;
+	right: 25px;
+	width: 10px;
+	height: 10px;
+	background-color: #5c81dc;
+	transform: rotate(45deg);
+	display: none;
+}
+
+.copy-text.active button::before,
+.copy-text.active button::after {
+	display: block;
+}
