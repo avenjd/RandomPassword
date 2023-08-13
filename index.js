@@ -1,25 +1,62 @@
-let copyText = document.querySelector('.copy-text');
-copyText.querySelector('button').addEventListener('click', function () {
-	let input = copyText.querySelector('input.input-copy-text');
-	let randomPass = getRandomPassword(20);
-	input.value = randomPass;
-	input.select();
-	document.execCommand('copy');
-	copyText.classList.add('active');
-	window.getSelection().removeAllRanges();
-	setTimeout(function () {
-		copyText.classList.remove('active');
-	}, 2000);
-});
+const copyText = document.querySelector('.copy-text')
+const input = document.querySelector('.input-copy-text')
+const passLength = document.querySelector('#length')
+const passLengthDisplay = document.querySelector('#pass-length')
+const decrementBtn = document.querySelector('#decrement-btn')
+const incrementBtn = document.querySelector('#increment-btn')
+const refreshBtn = document.querySelector('#refresh-btn')
+const copyBtn = document.querySelector('#copy-btn')
 
-function getRandomPassword(lengthOfPassword) {
-	const chars =
-		'0123456789abcdefghijklmnopqrstuvwxyz!@#$%^_+-&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	let password = '';
-	const array = new Uint32Array(lengthOfPassword);
-	window.crypto.getRandomValues(array);
-	for (let i = 0; i < lengthOfPassword; i++) {
-		password += chars[array[i] % chars.length];
+passLengthDisplay.textContent = passLength.value
+
+passLength.addEventListener('input', () => {
+	passLengthDisplay.textContent = passLength.value
+	generatePassword(passLength.value)
+})
+
+decrementBtn.addEventListener('click', () => {
+	if (passLength.value > 5) {
+		passLength.value--
+		passLengthDisplay.textContent = passLength.value
+		generatePassword(passLength.value)
 	}
-	return password;
+})
+
+incrementBtn.addEventListener('click', () => {
+	if (passLength.value < 25) {
+		passLength.value++
+		passLengthDisplay.textContent = passLength.value
+		generatePassword(passLength.value)
+	}
+})
+
+refreshBtn.addEventListener('click', () => {
+	generatePassword(passLength.value)
+})
+
+const copy = () => {
+	navigator.clipboard.writeText(input.textContent).then(function () {
+		copyText.classList.add('active')
+		window.getSelection().removeAllRanges()
+		setTimeout(() => {
+			copyText.classList.remove('active')
+		}, 2000)
+	})
 }
+copyBtn.addEventListener('click', copy)
+
+input.addEventListener('click', copy)
+
+const generatePassword = (lengthOfPassword) => {
+	const chars =
+		'0123456789abcdefghijklmnopqrstuvwxyz!@#$%^_±&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	let password = ''
+	const array = new Uint32Array(lengthOfPassword)
+	window.crypto.getRandomValues(array)
+	for (let i = 0; i < lengthOfPassword; i++) {
+		password += chars[array[i] % chars.length]
+	}
+	input.textContent = password
+}
+
+document.addEventListener('DOMContentLoaded', generatePassword(8))
