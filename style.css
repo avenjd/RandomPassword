@@ -131,6 +131,7 @@ button:active {
 	border-radius: 20px;
 	font-size: 15px;
 	display: none;
+	z-index: 15;
 }
 #copy-btn::after {
 	content: '';
@@ -142,7 +143,7 @@ button:active {
 	height: 10px;
 	background-color: #5c81dc;
 	transform: rotate(45deg);
-	z-index: -5;
+	z-index: 10;
 }
 .copy-settings.active #copy-btn::before,
 .copy-settings.active #copy-btn::after {
