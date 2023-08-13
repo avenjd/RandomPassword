@@ -1,4 +1,5 @@
 const copyText = document.querySelector('.copy-text')
+const copySettings = document.querySelector('.copy-settings')
 const input = document.querySelector('.input-copy-text')
 const passLength = document.querySelector('#length')
 const passLengthDisplay = document.querySelector('#pass-length')
@@ -7,7 +8,6 @@ const incrementBtn = document.querySelector('#increment-btn')
 const refreshBtn = document.querySelector('#refresh-btn')
 const copyBtn = document.querySelector('#copy-btn')
 const showBtn = document.querySelector('#show-btn')
-
 passLengthDisplay.textContent = passLength.value
 
 passLength.addEventListener('input', () => {
@@ -37,10 +37,10 @@ refreshBtn.addEventListener('click', () => {
 
 const copy = () => {
 	navigator.clipboard.writeText(input.textContent).then(function () {
-		copyText.classList.add('active')
+		copySettings.classList.add('active')
 		window.getSelection().removeAllRanges()
 		setTimeout(() => {
-			copyText.classList.remove('active')
+			copySettings.classList.remove('active')
 		}, 2000)
 	})
 }

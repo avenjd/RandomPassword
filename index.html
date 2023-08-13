@@ -2,7 +2,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 		<title>Random Pass</title>
 		<link rel="stylesheet" href="style.css" />
 		<script
@@ -38,17 +40,24 @@
 					<button id="increment-btn">+</button>
 				</div>
 			</div>
-			<div class="copy-text">
-				<div class="input-copy-text filter"></div>
-				<div class="pass-settings">
-					<button class="btn-copy" id="show-btn">
-						<i class="eye fa-regular fa-eye-slash"></i>
-					</button>
+
+			<div class="copy-text-container">
+				<div class="copy-text">
+					<div class="input-copy-text filter"></div>
+					<div class="pass-settings">
+						<button class="btn-copy" id="show-btn">
+							<i class="eye fa-regular fa-eye-slash"></i>
+						</button>
+					</div>
+				</div>
+				<div class="copy-settings">
 					<button class="btn-copy" id="refresh-btn">
 						<i class="fas fa-solid fa-rotate-left"></i>
+						<span>Retry</span>
 					</button>
 					<button id="copy-btn" class="btn-copy">
 						<i class="far fa-clone"></i>
+						<span>Copy</span>
 					</button>
 				</div>
 			</div>
