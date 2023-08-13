@@ -6,6 +6,7 @@ const decrementBtn = document.querySelector('#decrement-btn')
 const incrementBtn = document.querySelector('#increment-btn')
 const refreshBtn = document.querySelector('#refresh-btn')
 const copyBtn = document.querySelector('#copy-btn')
+const showBtn = document.querySelector('#show-btn')
 
 passLengthDisplay.textContent = passLength.value
 
@@ -43,8 +44,23 @@ const copy = () => {
 		}, 2000)
 	})
 }
-copyBtn.addEventListener('click', copy)
 
+const showPass = () => {
+	let eyeIcon = document.querySelector('.eye')
+	console.log(eyeIcon)
+	if (eyeIcon.classList.contains('fa-eye-slash')) {
+		eyeIcon.classList.remove('fa-eye-slash')
+		eyeIcon.classList.add('fa-eye')
+		input.classList.remove('filter')
+	} else {
+		eyeIcon.classList.add('fa-eye-slash')
+		eyeIcon.classList.remove('fa-eye')
+		input.classList.add('filter')
+	}
+}
+
+showBtn.addEventListener('click', showPass)
+copyBtn.addEventListener('click', copy)
 input.addEventListener('click', copy)
 
 const generatePassword = (lengthOfPassword) => {

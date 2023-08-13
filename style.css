@@ -57,8 +57,10 @@ p {
 	font-size: 18px;
 	border: none;
 	outline: none;
-	filter: blur(2px);
 	color: #333;
+}
+.filter {
+	filter: blur(2px);
 }
 .pass-settings {
 	display: flex;
@@ -133,7 +135,6 @@ button {
 .copy-text.active #copy-btn::after {
 	display: block;
 }
-
 @media (max-width: 550px) {
 	.length-settings {
 		flex-direction: column;
