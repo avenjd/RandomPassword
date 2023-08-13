@@ -47,7 +47,6 @@ const copy = () => {
 
 const showPass = () => {
 	let eyeIcon = document.querySelector('.eye')
-	console.log(eyeIcon)
 	if (eyeIcon.classList.contains('fa-eye-slash')) {
 		eyeIcon.classList.remove('fa-eye-slash')
 		eyeIcon.classList.add('fa-eye')
