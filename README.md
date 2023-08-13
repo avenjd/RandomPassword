@@ -1,2 +1,2 @@
 # RandomPassword
-Here you can safe generate your random password and fast copy to clipboard
+Here you can generate your random password in a safe and fast way and copy to clipboard
